@@ -28,6 +28,8 @@ import androidx.collection.SparseArrayCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flexxteam.messenger.ui.controllers.FlexxController;
+
 import org.drinkless.tdlib.Client;
 import org.drinkless.tdlib.TdApi;
 import org.thunderdog.challegram.BuildConfig;
@@ -595,6 +597,10 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_INFO_MULTILINE, R.id.btn_bio, R.drawable.baseline_info_24, R.string.UserBio).setContentStrings(R.string.LoadingInformation, R.string.BioNone));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
+    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_flexxController, R.drawable.baseline_settings_suggest_24, R.string.FlexxSettings));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
     TdApi.SuggestedAction[] actions = tdlib.getSuggestedActions();
     int addedActionItems = 0;
     for (TdApi.SuggestedAction action : actions) {
@@ -649,36 +655,6 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_faq, R.drawable.baseline_help_24, R.string.TelegramFAQ));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR));
     items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_privacyPolicy, R.drawable.baseline_policy_24, R.string.PrivacyPolicy));
-    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
-
-    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_checkUpdates, R.drawable.baseline_google_play_24, U.isAppSideLoaded() ? R.string.AppOnGooglePlay : R.string.CheckForUpdates));
-    if (!U.isAppSideLoaded()) {
-      items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-      items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_subscribeToBeta, R.drawable.templarian_baseline_flask_24, R.string.SubscribeToBeta));
-    }
-    items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCode, R.drawable.baseline_github_24, R.string.ViewSourceCode));
-    this.previousBuildInfo = Settings.instance().getPreviousBuildInformation();
-    if (this.previousBuildInfo != null) {
-      items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-      items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCodeChanges, R.drawable.baseline_code_24, R.string.ViewSourceCodeChanges));
-    }
-    AppBuildInfo currentBuildInfo = Settings.instance().getCurrentBuildInformation();
-    if (!currentBuildInfo.getPullRequests().isEmpty()) {
-      for (PullRequest pullRequest : currentBuildInfo.getPullRequests()) {
-        String title = Lang.getString(R.string.PullRequestCommit, pullRequest.getId());
-        if (!pullRequest.getCommitAuthor().isEmpty()) {
-          title = Lang.getString(R.string.format_PRMadeBy, title, pullRequest.getCommitAuthor());
-        }
-        items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-        items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCode, R.drawable.templarian_baseline_source_merge_24, title, false).setData(pullRequest));
-      }
-    }
-    if (Config.SHOW_COPY_REPORT_DETAILS_IN_SETTINGS) {
-      items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-      items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_copyDebug, R.drawable.baseline_bug_report_24, R.string.CopyReportData));
-    }
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     items.add(new ListItem(ListItem.TYPE_BUILD_NO, R.id.btn_build, 0, Lang.getAppBuildAndVersion(tdlib), false));
@@ -978,6 +954,8 @@ public class SettingsController extends ViewController<Void> implements
       EditBioController c = new EditBioController(context, tdlib);
       c.setArguments(new EditBioController.Arguments(about != null ? about.text : "", 0));
       navigateTo(c);
+    } else if (viewId == R.id.btn_flexxController) {
+      navigateTo(new FlexxController(context, tdlib));
     } else if (viewId == R.id.btn_languageSettings) {
       navigateTo(new SettingsLanguageController(context, tdlib));
     } else if (viewId == R.id.btn_notificationSettings) {

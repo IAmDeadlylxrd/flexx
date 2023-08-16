@@ -9,8 +9,32 @@
   Copyright (C) 2023 Flexxteam. 
   -->
 
-  <!-- Basic strings -->
+  <!-- Basic Strings -->
   <string name="Flexx" translatable="false">Flexxgram</string>
   <string name="FlexxVersion" translatable="false">1.0.0</string>
+
+  <!-- Links -->
+  <string name="TgChannelLink" translatable="false">https://flexxgram.t.me/</string>
+  <string name="TranslateLink" translatable="false">https://crowdin.com/project/flexxgram/</string>
+  <string name="SourcesLink" translatable="false">https://github.com/flexxteam/gram/</string>
+  <string name="DonateLink" translatable="false">https://flexxteamdonate.t.me/</string>
+
+  <!-- Flexx Controller -->
+  <string name="FlexxUpdates">Updates</string>
+  <string name="FlexxSettings">Flexx Settings</string>
+  <string name="GeneralSettingsController">General Settings</string>
+  <string name="AppearanceSettingsController">Appearance Settings</string>
+  <string name="ChatsSettingsController">Chats Settings</string>
+  <string name="ExperimentalSettingsController">Other Settings</string>
+
+  <string name="FlexxAbout">About us</string>
+  <string name="TgChannel">Telegram channel</string>
+  <string name="TgChannelDesc">Subscribe to our Telegram Channel.</string>
+  <!-- strings.xml already have it - string name="Translate">Translate</string-->
+  <string name="TranslateDesc">Translate Flexxgram into your Language.</string>
+  <string name="Sources">Source code</string>
+  <string name="SourcesDesc">Check out our Source Code.</string>
+  <string name="Donate">Donate</string>
+  <string name="DonateDesc">Financial Support for Development.</string>
   
 </resources>

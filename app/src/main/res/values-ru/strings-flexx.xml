@@ -8,5 +8,23 @@
 
   Copyright (C) 2023 Flexxteam. 
   -->
+
+  <!-- Flexx Controller -->
+  <string name="FlexxUpdates">Обновления</string>
+  <string name="FlexxSettings">Настройки Flexxgram</string>
+  <string name="GeneralSettingsController">Основные</string>
+  <string name="AppearanceSettingsController">Внешний вид</string>
+  <string name="ChatsSettingsController">Чаты</string>
+  <string name="ExperimentalSettingsController">Другое</string>
+
+  <string name="FlexxAbout">О нас</string>
+  <string name="TgChannel">Telegram канал</string>
+  <string name="TgChannelDesc">Следите за новостями разработки.</string>
+  <!-- strings.xml already have it - string name="Translate">Translate</string-->
+  <string name="TranslateDesc">Переведите Flexxgram на ваш язык.</string>
+  <string name="Sources">Исходный код</string>
+  <string name="SourcesDesc">Посмотрите наш исходный код.</string>
+  <string name="Donate">Донаты</string>
+  <string name="DonateDesc">Финансовая помощь разработке.</string>
   
 </resources>

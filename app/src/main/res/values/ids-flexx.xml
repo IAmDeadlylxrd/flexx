@@ -8,5 +8,24 @@
 
   Copyright (C) 2023 Flexxteam. 
   -->
+
+  <!-- Controller ids -->
+  <item type="id" name="controller_flexx" />
+  <item type="id" name="controller_generalSettings" />
+  <item type="id" name="controller_appearanceSettings" />
+  <item type="id" name="controller_chatsSettings" />
+  <item type="id" name="controller_experimentalSettings" />
+
+  <!-- Flexx controller button ids -->
+  <item type="id" name="btn_flexx" />
+  <item type="id" name="btn_flexxController" />
+  <item type="id" name="btn_generalSettingsController" />
+  <item type="id" name="btn_interfaceSettingsController" />
+  <item type="id" name="btn_chatsSettingsController" />
+  <item type="id" name="btn_experimentalSettingsController" />
+  <item type="id" name="btn_tgch" />
+  <item type="id" name="btn_crowdin" />
+  <item type="id" name="btn_sources" />
+  <item type="id" name="btn_donate" />
   
 </resources>
