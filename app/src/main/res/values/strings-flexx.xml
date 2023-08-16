@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--
+  This is a Flexxgram source code file.
+  Flexxgram is not a trademark of Telegram and Telegram X.
+  Flexxgram is an open-source and freely distributed modification of Telegram X.
+
+  Copyright (C) 2023 Flexxteam. 
+  -->
+
+  <!-- Basic strings -->
+  <string name="Flexx" translatable="false">Flexxgram</string>
+  <string name="FlexxVersion" translatable="false">1.0.0</string>
+  
+</resources>
