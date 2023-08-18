@@ -43,6 +43,9 @@ public class AppearanceSettingsController extends RecyclerViewController<Void> i
     if (viewId == R.id.btn_hidePhoneNumber) {
       FlexxConfig.instance().toggleHidePhoneNumber();
       adapter.updateValuedSettingById(R.id.btn_hidePhoneNumber);
+    } else if (viewId == R.id.btn_enableChatFolders) {
+      FlexxConfig.instance().toggleEnableChatFolders();
+      adapter.updateValuedSettingById(R.id.btn_enableChatFolders);
     }
   }
 
@@ -53,6 +56,8 @@ public class AppearanceSettingsController extends RecyclerViewController<Void> i
         int itemId = item.getId();
         if (itemId == R.id.btn_hidePhoneNumber) {
           view.getToggler().setRadioEnabled(FlexxConfig.hidePhoneNumber, isUpdate);
+        } else if (itemId == R.id.btn_enableChatFolders) {
+          view.getToggler().setRadioEnabled(FlexxConfig.enableChatFolders, isUpdate);
         }
       }
     };
@@ -66,6 +71,13 @@ public class AppearanceSettingsController extends RecyclerViewController<Void> i
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_hidePhoneNumber, 0, R.string.HidePhoneNumber));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.HidePhoneNumberDesc));
+
+    items.add(new ListItem(ListItem.TYPE_HEADER, 0, 0, R.string.AppearanceGeneralOptions));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_enableChatFolders, 0, R.string.EnableChatFolders));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.EnableChatFoldersDesc));
 
     adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);

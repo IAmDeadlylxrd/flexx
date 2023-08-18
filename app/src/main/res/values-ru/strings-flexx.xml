@@ -34,5 +34,8 @@
   <string name="DrawerOptions">Боковое меню</string>
   <string name="HidePhoneNumber">Скрыть номер телефона</string>
   <string name="HidePhoneNumberDesc">Включение этой настройки скроет Ваш номер телефона из бокового меню и профиля. Примечание: для применения изменений требуется перезапуск приложения.</string>
+  <string name="AppearanceGeneralOptions">Общие</string>
+  <string name="EnableChatFolders">Включить папки</string>
+  <string name="EnableChatFoldersDesc">Включение этой настройки заменит неудобные вкладки Telegram X (чаты и звонки) на современные папки как в официальном Telegram клиенте.</string>
   
 </resources>

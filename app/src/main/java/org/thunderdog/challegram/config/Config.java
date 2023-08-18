@@ -19,6 +19,8 @@ import android.view.WindowManager;
 
 import androidx.annotation.Dimension;
 
+import com.flexxteam.messenger.FlexxConfig;
+
 import org.drinkless.tdlib.TdApi;
 import org.thunderdog.challegram.BuildConfig;
 import org.thunderdog.challegram.N;
@@ -31,7 +33,7 @@ public class Config {
 
   public static final @Dimension(unit = Dimension.DP) int COMMENTS_BUBBLE_BUTTON_MIN_WIDTH = 200;
   public static final boolean SHOW_CHANNEL_POST_REPLY_INFO_IN_COMMENTS = true;
-  public static final boolean CHAT_FOLDERS_ENABLED = true;
+  public static final boolean CHAT_FOLDERS_ENABLED = enableChatFolders();
   public static final boolean CHAT_FOLDERS_SMART_CHAT_DELETION_ENABLED = true;
   public static final boolean CHAT_FOLDERS_HIDE_BOTTOM_BAR_ON_SCROLL = true;
   public static final boolean SEARCH_MESSAGES_ONLY_IN_SELECTED_FOLDER = BuildConfig.EXPERIMENTAL;
@@ -201,6 +203,14 @@ public class Config {
       }
     }
     return false;
+  }
+
+  public static void enableChatFolders() {
+    if (FlexxConfig.enableChatFolders) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public static final boolean REQUEST_BACKGROUND_LOCATION = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R;

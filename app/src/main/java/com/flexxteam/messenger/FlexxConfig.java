@@ -35,8 +35,9 @@ public class FlexxConfig {
 
   // Preferences - Appearance
   public static final String HIDE_PHONE_NUMBER = "hide_phone_number";
+  public static final String ENABLE_CHAT_FOLDERS = "enable_chat_folders";
   public static boolean hidePhoneNumber = instance().getBoolean(HIDE_PHONE_NUMBER, false);
-
+  public static boolean enableChatFolders = instance().getBoolean(ENABLE_CHAT_FOLDERS, false);
 
   // Preferences - Chats - Soon
   // Preferences - Other - Soon
@@ -167,5 +168,9 @@ public class FlexxConfig {
 
   public void toggleHidePhoneNumber() {
     putBoolean(HIDE_PHONE_NUMBER, hidePhoneNumber ^= true);
+  }
+
+  public void toggleEnableChatFolders() {
+    putBoolean(ENABLE_CHAT_FOLDERS, enableChatFolders ^= true);
   }
 }

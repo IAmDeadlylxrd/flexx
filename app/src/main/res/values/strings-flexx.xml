@@ -42,5 +42,8 @@
   <string name="DrawerOptions">Drawer Options</string>
   <string name="HidePhoneNumber">Hide Phone Number</string>
   <string name="HidePhoneNumberDesc">Enabling this setting will hide Your phone number from the Drawer and Your profile. Note: a restart of the Application is Required to apply the changes.</string>
+  <string name="AppearanceGeneralOptions">General</string>
+  <string name="EnableChatFolders">Enable Chat Folders</string>
+  <string name="EnableChatFoldersDesc">Enabling this setting will replace the inconvenient Telegram X tabs (chats and calls) with modern folders like in the official Telegram client.</string>
   
 </resources>

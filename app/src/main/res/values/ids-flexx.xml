@@ -30,5 +30,6 @@
 
   <!-- Appearance controller button ids -->
   <item type="id" name="btn_hidePhoneNumber" />
+  <item type="id" name="btn_enableChatFolders" />
   
 </resources>
