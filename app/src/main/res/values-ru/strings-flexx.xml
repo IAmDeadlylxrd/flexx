@@ -9,6 +9,9 @@
   Copyright (C) 2023 Flexxteam. 
   -->
 
+  <!-- Basic strings -->
+  <string name="HiddenNumber">Номер скрыт</string>
+
   <!-- Flexx Controller -->
   <string name="FlexxUpdates">Обновления</string>
   <string name="FlexxSettings">Настройки Flexxgram</string>
@@ -26,5 +29,10 @@
   <string name="SourcesDesc">Посмотрите наш исходный код.</string>
   <string name="Donate">Донаты</string>
   <string name="DonateDesc">Финансовая помощь разработке.</string>
+
+  <!-- Appearance controller -->
+  <string name="DrawerOptions">Боковое меню</string>
+  <string name="HidePhoneNumber">Скрыть номер телефона</string>
+  <string name="HidePhoneNumberDesc">Включение этой настройки скроет Ваш номер телефона из бокового меню и профиля. Примечание: для применения изменений требуется перезапуск приложения.</string>
   
 </resources>

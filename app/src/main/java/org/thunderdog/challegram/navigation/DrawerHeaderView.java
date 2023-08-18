@@ -26,6 +26,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.flexxteam.messenger.FlexxConfig;
+
 import org.drinkless.tdlib.TdApi;
 import org.thunderdog.challegram.FillingDrawable;
 import org.thunderdog.challegram.R;
@@ -270,6 +272,7 @@ public class DrawerHeaderView extends View implements Destroyable, GlobalAccount
 
     private final long userId;
     private final String name, phone;
+    private String username;
     private ImageFile avatar, avatarFull;
     private final AvatarPlaceholder avatarPlaceholder;
     private final EmojiStatusHelper emojiStatusHelper;
@@ -313,7 +316,12 @@ public class DrawerHeaderView extends View implements Destroyable, GlobalAccount
       userId = account.getKnownUserId();
       if (account.hasUserInfo()) {
         name = account.getName();
-        if (Settings.instance().needHidePhoneNumber()) {
+        username = account.getUsername();
+        if (FlexxConfig.hidePhoneNumber && username != null) {
+          phone = "@" + username;
+        } else if (FlexxConfig.hidePhoneNumber) {
+          phone = String.valueOf(userId);
+        } else if (Settings.instance().needHidePhoneNumber()) {
           phone = Strings.replaceNumbers(Strings.formatPhone(account.getPhoneNumber()));
         } else {
           phone = Strings.formatPhone(account.getPhoneNumber());

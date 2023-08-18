@@ -12,6 +12,7 @@
   <!-- Basic Strings -->
   <string name="Flexx" translatable="false">Flexxgram</string>
   <string name="FlexxVersion" translatable="false">1.0.0</string>
+  <string name="HiddenNumber">Hidden number</string>
 
   <!-- Links -->
   <string name="TgChannelLink" translatable="false">https://flexxgram.t.me/</string>
@@ -36,5 +37,10 @@
   <string name="SourcesDesc">Check out our Source Code.</string>
   <string name="Donate">Donate</string>
   <string name="DonateDesc">Financial Support for Development.</string>
+
+  <!-- Appearance controller -->
+  <string name="DrawerOptions">Drawer Options</string>
+  <string name="HidePhoneNumber">Hide Phone Number</string>
+  <string name="HidePhoneNumberDesc">Enabling this setting will hide Your phone number from the Drawer and Your profile. Note: a restart of the Application is Required to apply the changes.</string>
   
 </resources>

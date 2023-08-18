@@ -50,6 +50,8 @@ import androidx.annotation.WorkerThread;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flexxteam.messenger.FlexxConfig;
+
 import org.drinkless.tdlib.Client;
 import org.drinkless.tdlib.TdApi;
 import org.thunderdog.challegram.BaseActivity;
@@ -1663,7 +1665,9 @@ public class ProfileController extends ViewController<ProfileController.Args> im
           view.setName(getUsernameName());
           view.setData(getUsernameData());
         } else if (itemId == R.id.btn_phone) {
-          if (tdlib.isSelfUserId(user.id) && Settings.instance().needHidePhoneNumber()) {
+          if (tdlib.isSelfUserId(user.id) && FlexxConfig.hidePhoneNumber) {
+            view.setData(R.string.HiddenNumber);
+          } else if (tdlib.isSelfUserId(user.id) && Settings.instance().needHidePhoneNumber()) {
             view.setData(Strings.replaceNumbers(Strings.formatPhone(user.phoneNumber)));
           } else if (!StringUtils.isEmpty(user.phoneNumber)) {
             view.setData(Strings.formatPhone(user.phoneNumber));

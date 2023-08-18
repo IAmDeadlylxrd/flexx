@@ -27,5 +27,8 @@
   <item type="id" name="btn_crowdin" />
   <item type="id" name="btn_sources" />
   <item type="id" name="btn_donate" />
+
+  <!-- Appearance controller button ids -->
+  <item type="id" name="btn_hidePhoneNumber" />
   
 </resources>

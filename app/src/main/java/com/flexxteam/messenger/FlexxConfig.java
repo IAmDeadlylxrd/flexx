@@ -32,7 +32,12 @@ public class FlexxConfig {
   private static final String KEY_VERSION = "version";
 
   // Preferences - General - Soon
-  // Preferences - Appearance - Soon
+
+  // Preferences - Appearance
+  public static final String HIDE_PHONE_NUMBER = "hide_phone_number";
+  public static boolean hidePhoneNumber = instance().getBoolean(HIDE_PHONE_NUMBER, false);
+
+
   // Preferences - Chats - Soon
   // Preferences - Other - Soon
 
@@ -158,5 +163,9 @@ public class FlexxConfig {
         listener.onSettingsChanged(key, newSettings, oldSettings);
       }
     }
+  }
+
+  public void toggleHidePhoneNumber() {
+    putBoolean(HIDE_PHONE_NUMBER, hidePhoneNumber ^= true);
   }
 }

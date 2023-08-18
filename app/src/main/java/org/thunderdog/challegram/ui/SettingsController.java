@@ -28,6 +28,7 @@ import androidx.collection.SparseArrayCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flexxteam.messenger.FlexxConfig;
 import com.flexxteam.messenger.ui.controllers.FlexxController;
 
 import org.drinkless.tdlib.Client;
@@ -883,7 +884,9 @@ public class SettingsController extends ViewController<Void> implements
     String displayPhoneNumber;
     if (user != null) {
       displayPhoneNumber = originalPhoneNumber = Strings.formatPhone(user.phoneNumber);
-      if (Settings.instance().needHidePhoneNumber()) {
+      if (FlexxConfig.hidePhoneNumber) {
+        displayPhoneNumber = Lang.getString(R.string.HiddenNumber);
+      } else if (Settings.instance().needHidePhoneNumber()) {
         displayPhoneNumber = Strings.replaceNumbers(displayPhoneNumber);
       }
     } else {

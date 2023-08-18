@@ -24,6 +24,8 @@ import com.flexxteam.messenger.FlexxConfig;
 
 public class AppearanceSettingsController extends RecyclerViewController<Void> implements View.OnClickListener {
 
+  private SettingsAdapter adapter;
+
   public AppearanceSettingsController (Context context, Tdlib tdlib) {
     super(context, tdlib);
   }
@@ -38,25 +40,32 @@ public class AppearanceSettingsController extends RecyclerViewController<Void> i
 
   @Override public void onClick (View v) {
     int viewId = v.getId();
-    /* if (viewId == R.id.something) {
-      Do action.
-    } */
+    if (viewId == R.id.btn_hidePhoneNumber) {
+      FlexxConfig.instance().toggleHidePhoneNumber();
+      adapter.updateValuedSettingById(R.id.btn_hidePhoneNumber);
+    }
   }
 
   @Override protected void onCreateView (Context context, CustomRecyclerView recyclerView) {
-    SettingsAdapter adapter = new SettingsAdapter(this) {
+    adapter = new SettingsAdapter(this) {
       @Override protected void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         view.setDrawModifier(item.getDrawModifier());
         int itemId = item.getId();
-        /* if (itemId == R.id.something) {
-          Do action.
-        } */
+        if (itemId == R.id.btn_hidePhoneNumber) {
+          view.getToggler().setRadioEnabled(FlexxConfig.hidePhoneNumber, isUpdate);
+        }
       }
     };
 
     ArrayList<ListItem> items = new ArrayList<>();
 
-    // List items.
+    items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+    items.add(new ListItem(ListItem.TYPE_HEADER, 0, 0, R.string.DrawerOptions));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_hidePhoneNumber, 0, R.string.HidePhoneNumber));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.HidePhoneNumberDesc));
 
     adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);
